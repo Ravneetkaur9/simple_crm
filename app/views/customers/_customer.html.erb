@@ -1,0 +1,17 @@
+<div class="box">
+  <div class="columns is-vcentered">
+    <div class="column is-one-quarter">
+      <% if customer.image.attached? %>
+        <%= image_tag customer.image.variant(resize_to_limit: [150, 150]), class: "image is-rounded" %>
+      <% else %>
+        <%= image_tag "https://via.placeholder.com/150", class: "image is-rounded" %>
+      <% end %>
+    </div>
+    <div class="column">
+      <p><strong>Name:</strong> <%= customer.full_name %></p>
+      <p><strong>Phone:</strong> <%= customer.phone_number %></p>
+      <p><strong>Email:</strong> <%= customer.email.presence || "No email provided" %></p>
+      <p><strong>Notes:</strong> <%= customer.notes %></p>
+    </div>
+  </div>
+</div>
